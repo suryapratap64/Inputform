@@ -1,5 +1,6 @@
 'use client';
-// secnd step of form that contains invoise detail
+
+
 import { FormData } from '../CustomsDeclarationForm';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -19,6 +20,7 @@ const UNITS = ['KGS', 'MT', 'LTR', 'PCS', 'SET', 'PAIR', 'DOZ', 'GROSS'];
 export default function InvoiceHSCodeStep({ data, updateData }: Props) {
   return (
     <TooltipProvider>
+      {/* secnd step of form that contains invoise detail */}
       <div className="space-y-6">
         {/* Invoice Information */}
         <div>

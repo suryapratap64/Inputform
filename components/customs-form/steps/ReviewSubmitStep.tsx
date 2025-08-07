@@ -1,5 +1,6 @@
 'use client';
-//addtional step review and submit
+
+   
 import { FormData } from '../CustomsDeclarationForm';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -26,6 +27,7 @@ export default function ReviewSubmitStep({ data, onSubmit, isSubmitting }: Props
 
   return (
     <div className="space-y-6">
+         {/* //addtional step review and submit */}
       {/* Summary Header */}
       <div className="text-center">
         <CheckCircle className="mx-auto h-12 w-12 text-green-500 mb-4" />

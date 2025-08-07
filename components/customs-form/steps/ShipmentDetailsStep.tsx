@@ -1,5 +1,7 @@
 'use client';
-//step 1 of from that contain shipping detail
+
+
+
 import { FormData } from '../CustomsDeclarationForm';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -34,6 +36,7 @@ export default function ShipmentDetailsStep({ data, updateData }: Props) {
   return (
     <TooltipProvider>
       <div className="space-y-6">
+             {/*//step 1 of from that contain shipping detail */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Port of Loading */}
           <div className="space-y-2">

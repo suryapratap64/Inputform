@@ -1,5 +1,5 @@
 'use client';
-//consigneeinfo accordong to web link source create form third step
+
 import { FormData } from '../CustomsDeclarationForm';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -15,6 +15,7 @@ interface Props {
 export default function ConsigneeInfoStep({ data, updateData }: Props) {
   return (
     <TooltipProvider>
+      {/*consigneeinfo accordong to web link source create form third step*/}
       <div className="space-y-8">
         {/* Importer Information */}
         <div>

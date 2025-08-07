@@ -13,7 +13,7 @@ import ConsigneeInfoStep from './steps/ConsigneeInfoStep';
 import ReviewSubmitStep from './steps/ReviewSubmitStep';
 
 export interface FormData {
-  // Shipment Details
+
   portOfLoading: string;
   portOfDischarge: string;
   shipmentDate: string;
@@ -22,7 +22,7 @@ export interface FormData {
   voyageNumber: string;
   containerNumber: string;
   
-  // Invoice & HS Code Details
+
   invoiceNumber: string;
   invoiceDate: string;
   invoiceValue: string;
@@ -33,7 +33,7 @@ export interface FormData {
   unit: string;
   unitPrice: string;
   
-  // Consignee Information
+
   importerName: string;
   importerAddress: string;
   importerPAN: string;
@@ -42,7 +42,7 @@ export interface FormData {
   exporterAddress: string;
   exporterCountry: string;
   
-  // Additional Details
+
   freightAmount: string;
   insuranceAmount: string;
   assessableValue: string;
