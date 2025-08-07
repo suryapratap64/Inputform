@@ -2,6 +2,20 @@
 
 A multi-step form to simulate the process of submitting **Shipping Bills** / **Bills of Entry**, commonly used by Customs Brokers. Designed to reduce user errors, improve UX, and optimize form flow using modern frontend tools.
 
+## 📸 Screenshots
+
+### Step 1
+![Step 1](Public/assets/s1.png)
+
+### Step 2
+![Step 2](Public/assets/s2.png)
+
+### Step 3
+![Step 3](Public/assets/s3.png)
+### Step 4
+![Step 4](Public/assets/s4.png)
+
+
 ## ✅ Features
 - Multi-step form with **validation**, **tooltips**, and **field-specific feedback**
 - Tailored for Indian customs documentation
