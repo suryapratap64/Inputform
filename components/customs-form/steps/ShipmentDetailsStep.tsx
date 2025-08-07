@@ -1,5 +1,5 @@
 'use client';
-
+//step 1 of from that contain shipping detail
 import { FormData } from '../CustomsDeclarationForm';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';

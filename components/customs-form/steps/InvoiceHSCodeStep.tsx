@@ -1,5 +1,5 @@
 'use client';
-
+// secnd step of form that contains invoise detail
 import { FormData } from '../CustomsDeclarationForm';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
