@@ -5,18 +5,23 @@ A multi-step form to simulate the process of submitting **Shipping Bills** / **B
 ## 📸 Screenshots
 
 ### Step 1
+
 ![Step 1](Public/assets/s1.png)
 
 ### Step 2
+
 ![Step 2](Public/assets/s2.png)
 
 ### Step 3
+
 ![Step 3](Public/assets/s3.png)
+
 ### Step 4
+
 ![Step 4](Public/assets/s4.png)
 
-
 ## ✅ Features
+
 - Multi-step form with **validation**, **tooltips**, and **field-specific feedback**
 - Tailored for Indian customs documentation
 - Smooth transitions, logical flow, and responsive UI
@@ -69,21 +74,24 @@ Visit `http://localhost:3000` in your browser.
 ## 🧩 Steps & Breakdown
 
 ### ✅ Step 1: Shipment Details
+
 - Origin Country
 - Destination Country
 - Port Name, Vessel Name
 - Date of Departure
 
 ### ✅ Step 2: Invoice + HS Code + Consignee
+
 - Invoice Number, Date
 - HS Code
 - Exporter & Importer Info
 - Consignee Address
 
-### ✅ Step 3:consigneeinfo 
--    Importer Information
--    Importer Address
--    conatining info importer and exporter
+### ✅ Step 3:consigneeinfo
+
+- Importer Information
+- Importer Address
+- conatining info importer and exporter
 
 - ### ✅ Step 4 final:Review & Submit
 - - Review all entries
@@ -110,11 +118,9 @@ const shipmentSchema = z.object({
 - **Sonner** – Toasts/alerts
 - **React Hook Form + Zod** – Validations
 
-
 ## ✅ Acceptance Criteria
 
 - ✅ Smooth navigation between form steps
 - ✅ Clear field validations & error messages
 - ✅ Mobile-responsive layout
 - ✅ Clean UI with good spacing and readability
-

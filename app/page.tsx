@@ -1,7 +1,5 @@
-'use client';
-
-import CustomsDeclarationForm from '@/components/customs-form/CustomsDeclarationForm';
-
+"use client";
+import CustomsDeclarationForm from "@/components/customs-form/CustomsDeclarationForm";
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -11,8 +9,9 @@ export default function Home() {
             Customs Declaration Form
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Complete your Indian Shipping Bill/Bill of Entry with our streamlined multi-step process. 
-            Ensure compliance and reduce errors with built-in validation.
+            Complete your Indian Shipping Bill/Bill of Entry with our
+            streamlined multi-step process. Ensure compliance and reduce errors
+            with built-in validation.
           </p>
         </div>
         <CustomsDeclarationForm />

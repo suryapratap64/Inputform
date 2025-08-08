@@ -1,13 +1,22 @@
-'use client';
+"use client";
 
-
-
-import { FormData } from '../CustomsDeclarationForm';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { HelpCircle, Ship, MapPin, Calendar } from 'lucide-react';
+import { FormData } from "../CustomsDeclarationForm";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { HelpCircle, Ship, MapPin, Calendar } from "lucide-react";
 
 interface Props {
   data: FormData;
@@ -15,28 +24,28 @@ interface Props {
 }
 
 const INDIAN_PORTS = [
-  'INNSA - JNPT (Nhava Sheva)',
-  'INMAA1 - Chennai',
-  'INKOC1 - Kolkata',
-  'INMUN11 - Mumbai',
-  'INIXE - Cochin',
-  'INVTZ1 - Visakhapatnam',
-  'INPAV1 - Tuticorin',
-  'INDEL6 - ICD Tughlakabad'
+  "INNSA - JNPT (Nhava Sheva)",
+  "INMAA1 - Chennai",
+  "INKOC1 - Kolkata",
+  "INMUN11 - Mumbai",
+  "INIXE - Cochin",
+  "INVTZ1 - Visakhapatnam",
+  "INPAV1 - Tuticorin",
+  "INDEL6 - ICD Tughlakabad",
 ];
 
 const BILL_TYPES = [
-  'Bill of Entry (Import)',
-  'Shipping Bill (Export)',
-  'Ex-Bond Bill of Entry',
-  'Into Bond Bill of Entry'
+  "Bill of Entry (Import)",
+  "Shipping Bill (Export)",
+  "Ex-Bond Bill of Entry",
+  "Into Bond Bill of Entry",
 ];
 
 export default function ShipmentDetailsStep({ data, updateData }: Props) {
   return (
     <TooltipProvider>
       <div className="space-y-6">
-             {/*//step 1 of from that contain shipping detail */}
+        {/*//step 1 of from that contain shipping detail */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Port of Loading */}
           <div className="space-y-2">
@@ -52,13 +61,18 @@ export default function ShipmentDetailsStep({ data, updateData }: Props) {
                 </TooltipContent>
               </Tooltip>
             </div>
-            <Select value={data.portOfLoading} onValueChange={(value) => updateData({ portOfLoading: value })}>
+            <Select
+              value={data.portOfLoading}
+              onValueChange={(value) => updateData({ portOfLoading: value })}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select port of loading" />
               </SelectTrigger>
               <SelectContent>
                 {INDIAN_PORTS.map((port) => (
-                  <SelectItem key={port} value={port}>{port}</SelectItem>
+                  <SelectItem key={port} value={port}>
+                    {port}
+                  </SelectItem>
                 ))}
               </SelectContent>
             </Select>
@@ -78,13 +92,18 @@ export default function ShipmentDetailsStep({ data, updateData }: Props) {
                 </TooltipContent>
               </Tooltip>
             </div>
-            <Select value={data.portOfDischarge} onValueChange={(value) => updateData({ portOfDischarge: value })}>
+            <Select
+              value={data.portOfDischarge}
+              onValueChange={(value) => updateData({ portOfDischarge: value })}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select port of discharge" />
               </SelectTrigger>
               <SelectContent>
                 {INDIAN_PORTS.map((port) => (
-                  <SelectItem key={port} value={port}>{port}</SelectItem>
+                  <SelectItem key={port} value={port}>
+                    {port}
+                  </SelectItem>
                 ))}
               </SelectContent>
             </Select>
@@ -118,13 +137,18 @@ export default function ShipmentDetailsStep({ data, updateData }: Props) {
                 </TooltipContent>
               </Tooltip>
             </div>
-            <Select value={data.billType} onValueChange={(value) => updateData({ billType: value })}>
+            <Select
+              value={data.billType}
+              onValueChange={(value) => updateData({ billType: value })}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select bill type" />
               </SelectTrigger>
               <SelectContent>
                 {BILL_TYPES.map((type) => (
-                  <SelectItem key={type} value={type}>{type}</SelectItem>
+                  <SelectItem key={type} value={type}>
+                    {type}
+                  </SelectItem>
                 ))}
               </SelectContent>
             </Select>
@@ -136,7 +160,7 @@ export default function ShipmentDetailsStep({ data, updateData }: Props) {
             <Ship size={20} className="text-blue-600" />
             Vessel Information
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-2">
               <Label htmlFor="vesselName">Vessel Name</Label>
@@ -164,7 +188,9 @@ export default function ShipmentDetailsStep({ data, updateData }: Props) {
                 id="containerNumber"
                 placeholder="e.g., MSCU1234567"
                 value={data.containerNumber}
-                onChange={(e) => updateData({ containerNumber: e.target.value })}
+                onChange={(e) =>
+                  updateData({ containerNumber: e.target.value })
+                }
                 className="uppercase"
               />
             </div>
@@ -173,7 +199,8 @@ export default function ShipmentDetailsStep({ data, updateData }: Props) {
 
         <div className="bg-blue-50 p-4 rounded-lg">
           <p className="text-sm text-blue-700">
-            <strong>Note:</strong> Fields marked with * are mandatory. Ensure all vessel information matches your shipping documents.
+            <strong>Note:</strong> Fields marked with * are mandatory. Ensure
+            all vessel information matches your shipping documents.
           </p>
         </div>
       </div>

@@ -1,21 +1,31 @@
-'use client';
+"use client";
 
-
-import { FormData } from '../CustomsDeclarationForm';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { HelpCircle, FileText, Hash, DollarSign } from 'lucide-react';
+import { FormData } from "../CustomsDeclarationForm";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { HelpCircle, FileText, Hash, DollarSign } from "lucide-react";
 
 interface Props {
   data: FormData;
   updateData: (data: Partial<FormData>) => void;
 }
 
-const CURRENCIES = ['USD', 'EUR', 'GBP', 'INR', 'JPY', 'CNY', 'AED'];
-const UNITS = ['KGS', 'MT', 'LTR', 'PCS', 'SET', 'PAIR', 'DOZ', 'GROSS'];
+const CURRENCIES = ["USD", "EUR", "GBP", "INR", "JPY", "CNY", "AED"];
+const UNITS = ["KGS", "MT", "LTR", "PCS", "SET", "PAIR", "DOZ", "GROSS"];
 
 export default function InvoiceHSCodeStep({ data, updateData }: Props) {
   return (
@@ -28,7 +38,7 @@ export default function InvoiceHSCodeStep({ data, updateData }: Props) {
             <FileText size={20} className="text-green-600" />
             Invoice Information
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-2">
               <Label htmlFor="invoiceNumber">Invoice Number *</Label>
@@ -68,13 +78,18 @@ export default function InvoiceHSCodeStep({ data, updateData }: Props) {
 
           <div className="mt-4">
             <Label htmlFor="currency">Currency *</Label>
-            <Select value={data.currency} onValueChange={(value) => updateData({ currency: value })}>
+            <Select
+              value={data.currency}
+              onValueChange={(value) => updateData({ currency: value })}
+            >
               <SelectTrigger className="w-full md:w-48">
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
               <SelectContent>
                 {CURRENCIES.map((currency) => (
-                  <SelectItem key={currency} value={currency}>{currency}</SelectItem>
+                  <SelectItem key={currency} value={currency}>
+                    {currency}
+                  </SelectItem>
                 ))}
               </SelectContent>
             </Select>
@@ -87,7 +102,7 @@ export default function InvoiceHSCodeStep({ data, updateData }: Props) {
             <Hash size={20} className="text-purple-600" />
             HS Code & Product Details
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <div className="flex items-center gap-2">
@@ -135,13 +150,18 @@ export default function InvoiceHSCodeStep({ data, updateData }: Props) {
 
             <div className="space-y-2">
               <Label htmlFor="unit">Unit</Label>
-              <Select value={data.unit} onValueChange={(value) => updateData({ unit: value })}>
+              <Select
+                value={data.unit}
+                onValueChange={(value) => updateData({ unit: value })}
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Unit" />
                 </SelectTrigger>
                 <SelectContent>
                   {UNITS.map((unit) => (
-                    <SelectItem key={unit} value={unit}>{unit}</SelectItem>
+                    <SelectItem key={unit} value={unit}>
+                      {unit}
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -162,8 +182,13 @@ export default function InvoiceHSCodeStep({ data, updateData }: Props) {
             <div className="space-y-2">
               <Label>Total Value</Label>
               <Input
-                value={data.quantity && data.unitPrice ? 
-                  (parseFloat(data.quantity) * parseFloat(data.unitPrice)).toFixed(2) : '0.00'}
+                value={
+                  data.quantity && data.unitPrice
+                    ? (
+                        parseFloat(data.quantity) * parseFloat(data.unitPrice)
+                      ).toFixed(2)
+                    : "0.00"
+                }
                 disabled
                 className="bg-gray-50"
               />
@@ -173,7 +198,7 @@ export default function InvoiceHSCodeStep({ data, updateData }: Props) {
 
         <div className="border-t pt-6">
           <h3 className="text-lg font-semibold mb-4">Additional Charges</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-2">
               <Label htmlFor="freightAmount">Freight Amount</Label>
@@ -195,7 +220,9 @@ export default function InvoiceHSCodeStep({ data, updateData }: Props) {
                 type="number"
                 step="0.01"
                 value={data.insuranceAmount}
-                onChange={(e) => updateData({ insuranceAmount: e.target.value })}
+                onChange={(e) =>
+                  updateData({ insuranceAmount: e.target.value })
+                }
               />
             </div>
 
@@ -217,7 +244,9 @@ export default function InvoiceHSCodeStep({ data, updateData }: Props) {
                 type="number"
                 step="0.01"
                 value={data.assessableValue}
-                onChange={(e) => updateData({ assessableValue: e.target.value })}
+                onChange={(e) =>
+                  updateData({ assessableValue: e.target.value })
+                }
               />
             </div>
           </div>
@@ -225,8 +254,9 @@ export default function InvoiceHSCodeStep({ data, updateData }: Props) {
 
         <div className="bg-yellow-50 p-4 rounded-lg">
           <p className="text-sm text-yellow-700">
-            <strong>Important:</strong> Ensure HS codes are accurate as they determine applicable duty rates. 
-            Refer to the Indian Customs Tariff for correct classification.
+            <strong>Important:</strong> Ensure HS codes are accurate as they
+            determine applicable duty rates. Refer to the Indian Customs Tariff
+            for correct classification.
           </p>
         </div>
       </div>

@@ -1,12 +1,18 @@
-'use client';
+"use client";
 
-   
-import { FormData } from '../CustomsDeclarationForm';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { CheckCircle, Send, FileText, Building, Globe, Package } from 'lucide-react';
+import { FormData } from "../CustomsDeclarationForm";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import {
+  CheckCircle,
+  Send,
+  FileText,
+  Building,
+  Globe,
+  Package,
+} from "lucide-react";
 
 interface Props {
   data: FormData;
@@ -14,24 +20,30 @@ interface Props {
   isSubmitting: boolean;
 }
 
-export default function ReviewSubmitStep({ data, onSubmit, isSubmitting }: Props) {
-  const formatCurrency = (amount: string, currency: string = 'USD') => {
-    if (!amount || amount === '0') return '-';
+export default function ReviewSubmitStep({
+  data,
+  onSubmit,
+  isSubmitting,
+}: Props) {
+  const formatCurrency = (amount: string, currency: string = "USD") => {
+    if (!amount || amount === "0") return "-";
     return `${parseFloat(amount).toLocaleString()} ${currency}`;
   };
 
   const formatDate = (dateString: string) => {
-    if (!dateString) return '-';
-    return new Date(dateString).toLocaleDateString('en-IN');
+    if (!dateString) return "-";
+    return new Date(dateString).toLocaleDateString("en-IN");
   };
 
   return (
     <div className="space-y-6">
-         {/* //addtional step review and submit */}
+      {/* //addtional step review and submit */}
       {/* Summary Header */}
       <div className="text-center">
         <CheckCircle className="mx-auto h-12 w-12 text-green-500 mb-4" />
-        <h2 className="text-2xl font-bold text-gray-900">Review Your Declaration</h2>
+        <h2 className="text-2xl font-bold text-gray-900">
+          Review Your Declaration
+        </h2>
         <p className="text-gray-600 mt-2">
           Please review all information carefully before submitting
         </p>
@@ -49,11 +61,11 @@ export default function ReviewSubmitStep({ data, onSubmit, isSubmitting }: Props
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <p className="text-sm text-gray-600">Port of Loading</p>
-              <p className="font-medium">{data.portOfLoading || '-'}</p>
+              <p className="font-medium">{data.portOfLoading || "-"}</p>
             </div>
             <div>
               <p className="text-sm text-gray-600">Port of Discharge</p>
-              <p className="font-medium">{data.portOfDischarge || '-'}</p>
+              <p className="font-medium">{data.portOfDischarge || "-"}</p>
             </div>
             <div>
               <p className="text-sm text-gray-600">Shipment Date</p>
@@ -61,25 +73,25 @@ export default function ReviewSubmitStep({ data, onSubmit, isSubmitting }: Props
             </div>
             <div>
               <p className="text-sm text-gray-600">Bill Type</p>
-              <Badge variant="secondary">{data.billType || '-'}</Badge>
+              <Badge variant="secondary">{data.billType || "-"}</Badge>
             </div>
           </div>
-          
+
           {(data.vesselName || data.voyageNumber || data.containerNumber) && (
             <>
               <Separator />
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <p className="text-sm text-gray-600">Vessel Name</p>
-                  <p className="font-medium">{data.vesselName || '-'}</p>
+                  <p className="font-medium">{data.vesselName || "-"}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Voyage Number</p>
-                  <p className="font-medium">{data.voyageNumber || '-'}</p>
+                  <p className="font-medium">{data.voyageNumber || "-"}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Container Number</p>
-                  <p className="font-medium">{data.containerNumber || '-'}</p>
+                  <p className="font-medium">{data.containerNumber || "-"}</p>
                 </div>
               </div>
             </>
@@ -99,7 +111,7 @@ export default function ReviewSubmitStep({ data, onSubmit, isSubmitting }: Props
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <p className="text-sm text-gray-600">Invoice Number</p>
-              <p className="font-medium">{data.invoiceNumber || '-'}</p>
+              <p className="font-medium">{data.invoiceNumber || "-"}</p>
             </div>
             <div>
               <p className="text-sm text-gray-600">Invoice Date</p>
@@ -112,22 +124,24 @@ export default function ReviewSubmitStep({ data, onSubmit, isSubmitting }: Props
               </p>
             </div>
           </div>
-          
+
           <Separator />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <p className="text-sm text-gray-600">HS Code</p>
-              <p className="font-medium">{data.hsCode || '-'}</p>
+              <p className="font-medium">{data.hsCode || "-"}</p>
             </div>
             <div>
               <p className="text-sm text-gray-600">Quantity & Unit</p>
               <p className="font-medium">
-                {data.quantity && data.unit ? `${data.quantity} ${data.unit}` : '-'}
+                {data.quantity && data.unit
+                  ? `${data.quantity} ${data.unit}`
+                  : "-"}
               </p>
             </div>
           </div>
-          
+
           {data.description && (
             <div>
               <p className="text-sm text-gray-600">Product Description</p>
@@ -135,17 +149,23 @@ export default function ReviewSubmitStep({ data, onSubmit, isSubmitting }: Props
             </div>
           )}
 
-          {(data.freightAmount || data.insuranceAmount || data.assessableValue) && (
+          {(data.freightAmount ||
+            data.insuranceAmount ||
+            data.assessableValue) && (
             <>
               <Separator />
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <p className="text-sm text-gray-600">Freight Amount</p>
-                  <p className="font-medium">{formatCurrency(data.freightAmount, data.currency)}</p>
+                  <p className="font-medium">
+                    {formatCurrency(data.freightAmount, data.currency)}
+                  </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Insurance Amount</p>
-                  <p className="font-medium">{formatCurrency(data.insuranceAmount, data.currency)}</p>
+                  <p className="font-medium">
+                    {formatCurrency(data.insuranceAmount, data.currency)}
+                  </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Assessable Value</p>
@@ -177,15 +197,15 @@ export default function ReviewSubmitStep({ data, onSubmit, isSubmitting }: Props
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <p className="text-sm text-gray-600">Name</p>
-                <p className="font-medium">{data.importerName || '-'}</p>
+                <p className="font-medium">{data.importerName || "-"}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">PAN</p>
-                <p className="font-medium">{data.importerPAN || '-'}</p>
+                <p className="font-medium">{data.importerPAN || "-"}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">IEC</p>
-                <p className="font-medium">{data.importerIEC || '-'}</p>
+                <p className="font-medium">{data.importerIEC || "-"}</p>
               </div>
             </div>
             {data.importerAddress && (
@@ -207,11 +227,11 @@ export default function ReviewSubmitStep({ data, onSubmit, isSubmitting }: Props
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <p className="text-sm text-gray-600">Name</p>
-                <p className="font-medium">{data.exporterName || '-'}</p>
+                <p className="font-medium">{data.exporterName || "-"}</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Country</p>
-                <p className="font-medium">{data.exporterCountry || '-'}</p>
+                <p className="font-medium">{data.exporterCountry || "-"}</p>
               </div>
             </div>
             {data.exporterAddress && (
@@ -228,7 +248,7 @@ export default function ReviewSubmitStep({ data, onSubmit, isSubmitting }: Props
               <div>
                 <p className="text-sm text-gray-600">Estimated Duty Amount</p>
                 <p className="font-medium text-orange-600">
-                  {formatCurrency(data.dutyAmount, 'INR')}
+                  {formatCurrency(data.dutyAmount, "INR")}
                 </p>
               </div>
             </>
@@ -245,12 +265,12 @@ export default function ReviewSubmitStep({ data, onSubmit, isSubmitting }: Props
                 Ready to Submit Declaration
               </h3>
               <p className="text-green-700">
-                By submitting this form, you confirm that all information provided is accurate 
-                and complete to the best of your knowledge.
+                By submitting this form, you confirm that all information
+                provided is accurate and complete to the best of your knowledge.
               </p>
             </div>
-            
-            <Button 
+
+            <Button
               onClick={onSubmit}
               size="lg"
               disabled={isSubmitting}

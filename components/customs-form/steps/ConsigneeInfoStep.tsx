@@ -1,11 +1,16 @@
-'use client';
+"use client";
 
-import { FormData } from '../CustomsDeclarationForm';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { HelpCircle, Building, User, Globe } from 'lucide-react';
+import { FormData } from "../CustomsDeclarationForm";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { HelpCircle, Building, User, Globe } from "lucide-react";
 
 interface Props {
   data: FormData;
@@ -23,7 +28,7 @@ export default function ConsigneeInfoStep({ data, updateData }: Props) {
             <Building size={20} className="text-blue-600" />
             Importer Information
           </h3>
-          
+
           <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="importerName">Importer Name *</Label>
@@ -41,7 +46,9 @@ export default function ConsigneeInfoStep({ data, updateData }: Props) {
                 id="importerAddress"
                 placeholder="Complete address including pin code"
                 value={data.importerAddress}
-                onChange={(e) => updateData({ importerAddress: e.target.value })}
+                onChange={(e) =>
+                  updateData({ importerAddress: e.target.value })
+                }
                 rows={3}
               />
             </div>
@@ -55,7 +62,9 @@ export default function ConsigneeInfoStep({ data, updateData }: Props) {
                       <HelpCircle size={14} className="text-gray-400" />
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>Permanent Account Number issued by Income Tax Department</p>
+                      <p>
+                        Permanent Account Number issued by Income Tax Department
+                      </p>
                     </TooltipContent>
                   </Tooltip>
                 </div>
@@ -63,7 +72,9 @@ export default function ConsigneeInfoStep({ data, updateData }: Props) {
                   id="importerPAN"
                   placeholder="ABCDE1234F"
                   value={data.importerPAN}
-                  onChange={(e) => updateData({ importerPAN: e.target.value.toUpperCase() })}
+                  onChange={(e) =>
+                    updateData({ importerPAN: e.target.value.toUpperCase() })
+                  }
                   maxLength={10}
                   className="uppercase"
                 />
@@ -99,7 +110,7 @@ export default function ConsigneeInfoStep({ data, updateData }: Props) {
             <Globe size={20} className="text-green-600" />
             Exporter Information
           </h3>
-          
+
           <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="exporterName">Exporter Name *</Label>
@@ -117,7 +128,9 @@ export default function ConsigneeInfoStep({ data, updateData }: Props) {
                 id="exporterAddress"
                 placeholder="Complete address of the exporter"
                 value={data.exporterAddress}
-                onChange={(e) => updateData({ exporterAddress: e.target.value })}
+                onChange={(e) =>
+                  updateData({ exporterAddress: e.target.value })
+                }
                 rows={3}
               />
             </div>
@@ -128,7 +141,9 @@ export default function ConsigneeInfoStep({ data, updateData }: Props) {
                 id="exporterCountry"
                 placeholder="e.g., China, Germany, USA"
                 value={data.exporterCountry}
-                onChange={(e) => updateData({ exporterCountry: e.target.value })}
+                onChange={(e) =>
+                  updateData({ exporterCountry: e.target.value })
+                }
               />
             </div>
           </div>
@@ -140,7 +155,7 @@ export default function ConsigneeInfoStep({ data, updateData }: Props) {
             <User size={20} className="text-purple-600" />
             Duty Calculation
           </h3>
-          
+
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <Label htmlFor="dutyAmount">Estimated Duty Amount</Label>
@@ -149,7 +164,10 @@ export default function ConsigneeInfoStep({ data, updateData }: Props) {
                   <HelpCircle size={14} className="text-gray-400" />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Estimated customs duty based on assessable value and applicable rates</p>
+                  <p>
+                    Estimated customs duty based on assessable value and
+                    applicable rates
+                  </p>
                 </TooltipContent>
               </Tooltip>
             </div>
@@ -166,8 +184,9 @@ export default function ConsigneeInfoStep({ data, updateData }: Props) {
 
         <div className="bg-green-50 p-4 rounded-lg">
           <p className="text-sm text-green-700">
-            <strong>Verification Required:</strong> Ensure all importer details match with your IEC certificate. 
-            Incorrect information may result in customs clearance delays.
+            <strong>Verification Required:</strong> Ensure all importer details
+            match with your IEC certificate. Incorrect information may result in
+            customs clearance delays.
           </p>
         </div>
       </div>
